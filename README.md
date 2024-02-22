@@ -17,7 +17,13 @@ https://github.com/Xi3Chen/UE4.27PackingH5DDoc?tab=readme-ov-file
 
 ### ue 编译记录
 1. 获取虚幻引擎源代码访问权限   
-   https://www.unrealengine.com/zh-CN/ue-on-github   
-![image](https://github.com/zongkuiy/ue-wasm/assets/3311506/c5793b08-9db7-453d-aaac-c0b1822f168c)
+   https://www.unrealengine.com/zh-CN/ue-on-github
+   https://docs.unrealengine.com/5.3/zh-CN/downloading-unreal-engine-source-code/
 
-2. 
+> 注意：官方库目前只有两个4.24的html版本, 暂时用下面的版本进行构建   
+https://github.com/SpeculativeCoder/UnrealEngine-HTML5-ES3
+
+2. 下载ue代码
+```bash
+  git clone -b 4.27-html5-es3 --single-branch https://github.com/SpeculativeCoder/UnrealEngine.git ue-4.27-html5-es3
+```
