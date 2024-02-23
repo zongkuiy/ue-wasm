@@ -45,10 +45,12 @@ https://www.kancloud.cn/maryong/maryong/1800760
 
 4. 运行Setup.bat, 时间较长，需要下载约12G文件
 
-5. 运行Engine/Platforms/HTML5/HTML5Setup.sh
+5. 运行Engine/Platforms/HTML5/HTML5Setup.sh   
+> 需要安装CMake
    
 7. 运行GenerateProjectFiles.bat
-8. 
+> 需要安装VisualStudio2017和.Net Framework 4.6.2
+
 ### 其他
 - 一家支持ue + Cesium + wasm的公司   
 http://uipower.com/ueplus.html
