@@ -40,6 +40,9 @@ https://github.com/SpeculativeCoder/UnrealEngine-HTML5-ES3
 > 错误解决1：Git 克隆错误RPC failed; curl 56 Recv failure: Connection was reset.’   
 https://www.kancloud.cn/maryong/maryong/1800760
 
+3. 从以下地址的Assets下载Commit.gitdepth.xml并覆盖Engine/Build/Commit.gitdepth.xml
+   https://github.com/EpicGames/UnrealEngine/releases/tag/4.27.2-release
+
 ### 其他
 - 一家支持ue + Cesium + wasm的公司   
 http://uipower.com/ueplus.html
