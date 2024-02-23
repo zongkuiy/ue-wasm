@@ -43,6 +43,12 @@ https://www.kancloud.cn/maryong/maryong/1800760
 3. 从以下地址的Assets下载Commit.gitdepth.xml并覆盖Engine/Build/Commit.gitdepth.xml
    https://github.com/EpicGames/UnrealEngine/releases/tag/4.27.2-release
 
+4. 运行Setup.bat, 时间较长，需要下载约12G文件
+
+5. 运行Engine/Platforms/HTML5/HTML5Setup.sh
+   
+7. 运行GenerateProjectFiles.bat
+8. 
 ### 其他
 - 一家支持ue + Cesium + wasm的公司   
 http://uipower.com/ueplus.html
