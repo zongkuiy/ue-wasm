@@ -46,10 +46,12 @@ https://www.kancloud.cn/maryong/maryong/1800760
 4. 运行Setup.bat, 时间较长，需要下载约12G文件
 
 5. 运行Engine/Platforms/HTML5/HTML5Setup.sh   
-> 需要安装CMake
+> 需要安装CMake、Python3   
+> 注意：最后必须出现success字样才算最终setup成功，如果没有出现success，一般是emsdk的问题，请参考https://github.com/Xi3Chen/UE4.27PackingH5DDoc?tab=readme-ov-file#41-%E5%9C%A8%E7%BD%91%E7%BB%9C%E9%80%9A%E5%B8%B8%E6%A2%AF%E5%AD%90%E8%AE%BF%E9%97%AE%E9%80%9A%E7%95%85%E7%9A%84%E6%97%B6%E5%80%99%E8%BF%90%E8%A1%8Chtml5setupsh%E5%90%8E%E6%9C%AA%E5%87%BA%E7%8E%B0success%E6%97%B6 解决
    
-7. 运行GenerateProjectFiles.bat
-> 需要安装VisualStudio2017和.Net Framework 4.6.2
+6. 运行GenerateProjectFiles.bat
+> 需要安装VisualStudio2022和.Net Framework 4.6.2
+
 
 ### 其他
 - 一家支持ue + Cesium + wasm的公司   
