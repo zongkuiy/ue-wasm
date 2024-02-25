@@ -118,6 +118,24 @@ PS D:\ue-4.27-html5-es3\Engine\Platforms\HTML5\Build\emsdk\emsdk-3.1.42>
 6. 运行GenerateProjectFiles.bat
 > 需要安装VisualStudio2019和.Net Framework 4.6.2
 
+7. VisualStudio2019打开Open UE4.sln
+   
+9. 将HTML5LauncherHelper项目添加到解决方案中
+   Engine\Platforms\HTML5\Source\Programs\HTML5\HTML5LaunchHelper\HTML5LauncherHelper.csproj
+
+10. 按住Ctrl按键点击以下项目，然后点击生成选定内容。
+```
+UE4
+AutomationTool
+AutomationToolLauncher
+HTML5LaunchHelper
+ShaderCompileWorker
+UnrealBuildTool
+UnrealFrontend
+UnrealHeaderTool
+UnrealLightmass
+UnrealPak
+```
 
 ### 其他
 - 一家支持ue + Cesium + wasm的公司   
