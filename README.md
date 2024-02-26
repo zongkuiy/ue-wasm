@@ -123,7 +123,7 @@ PS D:\ue-4.27-html5-es3\Engine\Platforms\HTML5\Build\emsdk\emsdk-3.1.42>
 9. 将HTML5LauncherHelper项目添加到解决方案中
    Engine\Platforms\HTML5\Source\Programs\HTML5\HTML5LaunchHelper\HTML5LauncherHelper.csproj
 
-10. 按住Ctrl按键点击以下项目，然后点击生成选定内容。
+10. 按住Ctrl按键点击以下项目，然后点击生成选定内容。【成功】
 ```
 UE4
 AutomationTool
@@ -136,6 +136,14 @@ UnrealHeaderTool
 UnrealLightmass
 UnrealPak
 ```
+
+11. 运行ue4editor.exe, 启动后安装cesium for unreal插件 【成功】
+
+12. 尝试普通项目桌面编译 【成功】
+
+13. 尝试普通项目html5打包   
+错误一：Engine\Platforms\HTML5\Build\emsdk\emsdk-3.1.42\tmp 目录不存在   
+手动创建目录，重新打包   
 
 ### 其他
 - 一家支持ue + Cesium + wasm的公司   
