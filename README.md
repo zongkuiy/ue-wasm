@@ -48,8 +48,10 @@ https://www.kancloud.cn/maryong/maryong/1800760
 5. 运行Engine/Platforms/HTML5/HTML5Setup.sh   
 > 需要安装CMake、Python3， 并正确设置环境变量 
 > 注意：最后必须出现success字样才算最终setup成功，如果没有出现success，一般是emsdk的问题，请参考https://github.com/Xi3Chen/UE4.27PackingH5DDoc?tab=readme-ov-file#41-%E5%9C%A8%E7%BD%91%E7%BB%9C%E9%80%9A%E5%B8%B8%E6%A2%AF%E5%AD%90%E8%AE%BF%E9%97%AE%E9%80%9A%E7%95%85%E7%9A%84%E6%97%B6%E5%80%99%E8%BF%90%E8%A1%8Chtml5setupsh%E5%90%8E%E6%9C%AA%E5%87%BA%E7%8E%B0success%E6%97%B6 解决   
-> powershell可能无法正确使用系统的代理， 建议使用命令手动设置代理
-> $Env:http_proxy="http://127.0.0.1:7890";$Env:https_proxy="http://127.0.0.1:7890"
+> powershell可能无法正确使用系统的代理， 建议使用命令手动设置代理   
+> $Env:http_proxy="http://127.0.0.1:7890";$Env:https_proxy="http://127.0.0.1:7890"   
+> 切换到git shell时务必设置好emsdk_env给出的环境变量，并将emsdk的PATH设置在前面
+
 安装日志如下：
 ```
 PS D:\ue-4.27-html5-es3\Engine\Platforms\HTML5\Build\emsdk\emsdk-3.1.42> .\emsdk.bat install 3.1.42
