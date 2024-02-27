@@ -163,7 +163,15 @@ UnrealPak
 > 如果没有html5设备，运行   
 > python embuilder.py build struct_info   
 
-14. 安装Cesium插件
+14. 在原生4.27.2上安装Cesium插件
+
+15. 在编译出来的ue4.27.2上创建一个项目并将原生4.27.2上的Cesium插件作为项目插件拷贝到项目plugins中
+
+16. 删除项目plugins中的Binary，启动项目让ueeditor重新编译插件
+
+17. 编译成功后得到的插件放入到ueeditor的插件库中
+
+18. 新建Cesium项目并打包成wasm
 
 ### 其他
 - 一家支持ue + Cesium + wasm的公司   
