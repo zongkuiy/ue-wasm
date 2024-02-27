@@ -159,12 +159,11 @@ UnrealPak
 
 12. 尝试普通项目桌面编译 【成功】
 
-13. 尝试普通项目html5打包   
-错误一：Engine\Platforms\HTML5\Build\emsdk\emsdk-3.1.42\tmp 目录不存在   
-> 临时解决方案： 手动创建目录，重新打包
+13. 尝试普通项目html5打包 【成功】   
+> 如果没有html5设备，运行   
+> python embuilder.py build struct_info   
 
-
-```
+14. 安装Cesium插件
 
 ### 其他
 - 一家支持ue + Cesium + wasm的公司   
