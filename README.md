@@ -51,8 +51,15 @@ https://www.kancloud.cn/maryong/maryong/1800760
 > powershell可能无法正确使用系统的代理， 建议使用命令手动设置代理   
 > $Env:http_proxy="http://127.0.0.1:7890";$Env:https_proxy="http://127.0.0.1:7890"   
 > 切换到git shell时务必设置好emsdk_env给出的环境变量，并将emsdk的PATH设置在前面
+```
+export PATH=/D/ue-4.27-html5-es3/Engine/Platforms/HTML5/Build/emsdk/emsdk-3.1.53:/D/ue-4.27-html5-es3/Engine/Platforms/HTML5/Build/emsdk/emsdk-3.1.53/upstream/emscripten:/D/ue-4.27-html5-es3/Engine/Platforms/HTML5/Build/emsdk/emsdk-3.1.53/node/16.20.0_64bit/bin:$PATH
 
-安装日志如下：
+export EMSDK=/D/ue-4.27-html5-es3/Engine/Platforms/HTML5/Build/emsdk/emsdk-3.1.53
+export EMSDK_NODE=/D/ue-4.27-html5-es3/Engine/Platforms/HTML5/Build/emsdk/emsdk-3.1.53/node/16.20.0_64bit/bin/node.exe
+export EMSDK_PYTHON=/D/ue-4.27-html5-es3/Engine/Platforms/HTML5/Build/emsdk/emsdk-3.1.53/python/3.9.2-nuget_64bit/python.exe
+export JAVA_HOME=/D/ue-4.27-html5-es3/Engine/Platforms/HTML5/Build/emsdk/emsdk-3.1.53/java/8.152_64bit
+```
+emsdk安装日志如下：
 ```
 PS D:\ue-4.27-html5-es3\Engine\Platforms\HTML5\Build\emsdk\emsdk-3.1.42> .\emsdk.bat install 3.1.42
 Resolving SDK version '3.1.42' to 'sdk-releases-9d73bf4bd5b5c9ce6e51be0ed5ce6599fcb28e9e-64bit'
@@ -147,104 +154,7 @@ UnrealPak
 错误一：Engine\Platforms\HTML5\Build\emsdk\emsdk-3.1.42\tmp 目录不存在   
 > 临时解决方案： 手动创建目录，重新打包
 
-错误二：
-```
-ParallelExecutor.ExecuteActions:   D:/UE/UE_4.27/Engine/Source/Runtime/Sockets/Private/BSDSockets/SocketSubsystemBSD.cpp(340,7): error: duplicate case value '2'
-ParallelExecutor.ExecuteActions:     340 |         case TRY_AGAIN: return SE_TRY_AGAIN;
-ParallelExecutor.ExecuteActions:         |              ^
-ParallelExecutor.ExecuteActions:   D:\UE\UE_4.27\Engine\Platforms\HTML5\Build\emsdk\emsdk-3.1.42\upstream\emscripten\cache\sysroot/include\netdb.h(124,24): note: expanded from macro 'TRY_AGAIN'
-ParallelExecutor.ExecuteActions:     124 | #define TRY_AGAIN      2
-ParallelExecutor.ExecuteActions:         |                        ^
-ParallelExecutor.ExecuteActions:   D:/UE/UE_4.27/Engine/Source/Runtime/Sockets/Private/BSDSockets/SocketSubsystemBSD.cpp(289,7): note: previous case defined here
-ParallelExecutor.ExecuteActions:     289 |         case EACCES: return SE_EACCES;
-ParallelExecutor.ExecuteActions:         |              ^
-ParallelExecutor.ExecuteActions:   D:\UE\UE_4.27\Engine\Platforms\HTML5\Build\emsdk\emsdk-3.1.42\upstream\emscripten\cache\sysroot/include\bits/errno.h(15,28): note: expanded from macro 'EACCES'
-ParallelExecutor.ExecuteActions:      15 | #define EACCES             __WASI_ERRNO_ACCES
-ParallelExecutor.ExecuteActions:         |                            ^
-ParallelExecutor.ExecuteActions:   D:\UE\UE_4.27\Engine\Platforms\HTML5\Build\emsdk\emsdk-3.1.42\upstream\emscripten\cache\sysroot/include\wasi/api.h(126,28): note: expanded from macro '__WASI_ERRNO_ACCES'
-ParallelExecutor.ExecuteActions:     126 | #define __WASI_ERRNO_ACCES (UINT16_C(2))
-ParallelExecutor.ExecuteActions:         |                            ^
-ParallelExecutor.ExecuteActions:   In file included from D:\Unreal Projects\p2\Intermediate\Build\HTML5\p2\Development\Sockets\Module.Sockets.cpp:5:
-ParallelExecutor.ExecuteActions:   D:/UE/UE_4.27/Engine/Source/Runtime/Sockets/Private/BSDSockets/SocketSubsystemBSD.cpp(341,7): error: duplicate case value '3'
-ParallelExecutor.ExecuteActions:     341 |         case NO_RECOVERY: return SE_NO_RECOVERY;
-ParallelExecutor.ExecuteActions:         |              ^
-ParallelExecutor.ExecuteActions:   D:\UE\UE_4.27\Engine\Platforms\HTML5\Build\emsdk\emsdk-3.1.42\upstream\emscripten\cache\sysroot/include\netdb.h(125,24): note: expanded from macro 'NO_RECOVERY'
-ParallelExecutor.ExecuteActions:     125 | #define NO_RECOVERY    3
-ParallelExecutor.ExecuteActions:         |                        ^
-ParallelExecutor.ExecuteActions:   D:/UE/UE_4.27/Engine/Source/Runtime/Sockets/Private/BSDSockets/SocketSubsystemBSD.cpp(306,7): note: previous case defined here
-ParallelExecutor.ExecuteActions:     306 |         case EADDRINUSE: return SE_EADDRINUSE;
-ParallelExecutor.ExecuteActions:         |              ^
-ParallelExecutor.ExecuteActions:   D:\UE\UE_4.27\Engine\Platforms\HTML5\Build\emsdk\emsdk-3.1.42\upstream\emscripten\cache\sysroot/include\bits/errno.h(57,28): note: expanded from macro 'EADDRINUSE'
-ParallelExecutor.ExecuteActions:      57 | #define EADDRINUSE         __WASI_ERRNO_ADDRINUSE
-ParallelExecutor.ExecuteActions:         |                            ^
-ParallelExecutor.ExecuteActions:   D:\UE\UE_4.27\Engine\Platforms\HTML5\Build\emsdk\emsdk-3.1.42\upstream\emscripten\cache\sysroot/include\wasi/api.h(131,32): note: expanded from macro '__WASI_ERRNO_ADDRINUSE'
-ParallelExecutor.ExecuteActions:     131 | #define __WASI_ERRNO_ADDRINUSE (UINT16_C(3))
-ParallelExecutor.ExecuteActions:         |                                ^
-ParallelExecutor.ExecuteActions:   1 warning and 2 errors generated.
-```
-> 临时解决方案：   
-注释340行：case TRY_AGAIN: return SE_TRY_AGAIN;   
-注释306行：case EADDRINUSE: return SE_EADDRINUSE;   
 
-错误三：
-```
-PackagingResults: Warning: unknown warning option '-Wno-invalid-unevaluated-string' [-Wunknown-warning-option]
-UATHelper: 打包 (HTML5):     [626/627] p3.js
-UATHelper: 打包 (HTML5):     wasm-ld: error: D:\\Unreal Projects\\p3\\Intermediate\\Build\\HTML5\\p3\\Development\\PhysXVehicles\\Module.PhysXVehicles.cpp.o: undefined symbol: physx::PxVehicleSetBasisVectors(physx::PxVec3 const&, physx::PxVec3 const&)
-UATHelper: 打包 (HTML5):     wasm-ld: error: D:\\Unreal Projects\\p3\\Intermediate\\Build\\HTML5\\p3\\Development\\PhysXVehicles\\Module.PhysXVehicles.cpp.o: undefined symbol: physx::PxVehicleSuspensionRaycasts(physx::PxBatchQuery*, unsigned int, physx::PxVehicleWheels**, unsigned int, physx::PxBatchQueryResult<physx::PxRaycastHit>*, bool const*)
-UATHelper: 打包 (HTML5):     wasm-ld: error: D:\\Unreal Projects\\p3\\Intermediate\\Build\\HTML5\\p3\\Development\\PhysXVehicles\\Module.PhysXVehicles.cpp.o: undefined symbol: physx::PxVehicleDrivableSurfaceToTireFrictionPairs::release()
-UATHelper: 打包 (HTML5):     wasm-ld: error: D:\\Unreal Projects\\p3\\Intermediate\\Build\\HTML5\\p3\\Development\\PhysXVehicles\\Module.PhysXVehicles.cpp.o: undefined symbol: physx::PxVehicleDrivableSurfaceToTireFrictionPairs::allocate(unsigned int, unsigned int)
-UATHelper: 打包 (HTML5):     wasm-ld: error: D:\\Unreal Projects\\p3\\Intermediate\\Build\\HTML5\\p3\\Development\\PhysXVehicles\\Module.PhysXVehicles.cpp.o: undefined symbol: physx::PxVehicleDrivableSurfaceToTireFrictionPairs::setup(unsigned int, unsigned int, physx::PxMaterial const**, physx::PxVehicleDrivableSurfaceType const*)
-UATHelper: 打包 (HTML5):     wasm-ld: error: D:\\Unreal Projects\\p3\\Intermediate\\Build\\HTML5\\p3\\Development\\PhysXVehicles\\Module.PhysXVehicles.cpp.o: undefined symbol: physx::PxVehicleDrivableSurfaceToTireFrictionPairs::setTypePairFriction(unsigned int, unsigned int, float)
-UATHelper: 打包 (HTML5):     wasm-ld: error: D:\\Unreal Projects\\p3\\Intermediate\\Build\\HTML5\\p3\\Development\\PhysXVehicles\\Module.PhysXVehicles.cpp.o: undefined symbol: physx::PxVehicleUpdateSingleVehicleAndStoreTelemetryData(float, physx::PxVec3 const&, physx::PxVehicleDrivableSurfaceToTireFrictionPairs const&, physx::PxVehicleWheels*, physx::PxVehicle
-WheelQueryResult*, physx::PxVehicleTelemetryData&)
-UATHelper: 打包 (HTML5):     wasm-ld: error: D:\\Unreal Projects\\p3\\Intermediate\\Build\\HTML5\\p3\\Development\\PhysXVehicles\\Module.PhysXVehicles.cpp.o: undefined symbol: physx::PxVehicleUpdates(float, physx::PxVec3 const&, physx::PxVehicleDrivableSurfaceToTireFrictionPairs const&, unsigned int, physx::PxVehicleWheels**, physx::PxVehicleWheelQueryResult*,
- physx::PxVehicleConcurrentUpdateData*)
-UATHelper: 打包 (HTML5):     wasm-ld: error: D:\\Unreal Projects\\p3\\Intermediate\\Build\\HTML5\\p3\\Development\\PhysXVehicles\\Module.PhysXVehicles.cpp.o: undefined symbol: physx::PxVehicleUpdates(float, physx::PxVec3 const&, physx::PxVehicleDrivableSurfaceToTireFrictionPairs const&, unsigned int, physx::PxVehicleWheels**, physx::PxVehicleWheelQueryResult*,
- physx::PxVehicleConcurrentUpdateData*)
-UATHelper: 打包 (HTML5):     wasm-ld: error: D:\\Unreal Projects\\p3\\Intermediate\\Build\\HTML5\\p3\\Development\\PhysXVehicles\\Module.PhysXVehicles.cpp.o: undefined symbol: physx::PxVehicleUpdates(float, physx::PxVec3 const&, physx::PxVehicleDrivableSurfaceToTireFrictionPairs const&, unsigned int, physx::PxVehicleWheels**, physx::PxVehicleWheelQueryResult*,
- physx::PxVehicleConcurrentUpdateData*)
-UATHelper: 打包 (HTML5):     wasm-ld: error: D:\\Unreal Projects\\p3\\Intermediate\\Build\\HTML5\\p3\\Development\\PhysXVehicles\\Module.PhysXVehicles.cpp.o: undefined symbol: physx::PxVehicleTelemetryData::free()
-UATHelper: 打包 (HTML5):     wasm-ld: error: D:\\Unreal Projects\\p3\\Intermediate\\Build\\HTML5\\p3\\Development\\PhysXVehicles\\Module.PhysXVehicles.cpp.o: undefined symbol: physx::PxVehicleDrive4W::free()
-UATHelper: 打包 (HTML5):     wasm-ld: error: D:\\Unreal Projects\\p3\\Intermediate\\Build\\HTML5\\p3\\Development\\PhysXVehicles\\Module.PhysXVehicles.cpp.o: undefined symbol: physx::PxVehicleDriveTank::free()
-UATHelper: 打包 (HTML5):     wasm-ld: error: D:\\Unreal Projects\\p3\\Intermediate\\Build\\HTML5\\p3\\Development\\PhysXVehicles\\Module.PhysXVehicles.cpp.o: undefined symbol: physx::PxVehicleDriveNW::free()
-UATHelper: 打包 (HTML5):     wasm-ld: error: D:\\Unreal Projects\\p3\\Intermediate\\Build\\HTML5\\p3\\Development\\PhysXVehicles\\Module.PhysXVehicles.cpp.o: undefined symbol: physx::PxVehicleNoDrive::free()
-UATHelper: 打包 (HTML5):     wasm-ld: error: D:\\Unreal Projects\\p3\\Intermediate\\Build\\HTML5\\p3\\Development\\PhysXVehicles\\Module.PhysXVehicles.cpp.o: undefined symbol: physx::PxVehicleTelemetryData::allocate(unsigned int)
-PackagingResults: Error: D:\\Unreal Projects\\p3\\Intermediate\\Build\\HTML5\\p3\\Development\\PhysXVehicles\\Module.PhysXVehicles.cpp.o: undefined symbol: physx::PxVehicleSetBasisVectors(physx::PxVec3 const&, physx::PxVec3 const&)
-UATHelper: 打包 (HTML5):     wasm-ld: error: D:\\Unreal Projects\\p3\\Intermediate\\Build\\HTML5\\p3\\Development\\PhysXVehicles\\Module.PhysXVehicles.cpp.o: undefined symbol: physx::PxVehicleTelemetryData::setup(float, float, float, float, float const*, float const*, physx::PxVec3 const&, physx::PxVec3 const&, physx::PxVec3 const&)
-UATHelper: 打包 (HTML5):     wasm-ld: error: D:\\Unreal Projects\\p3\\Intermediate\\Build\\HTML5\\p3\\Development\\PhysXVehicles\\Module.PhysXVehicles.cpp.o: undefined symbol: physx::PxVehicleNoDrive::setBrakeTorque(unsigned int, float)
-UATHelper: 打包 (HTML5):     wasm-ld: error: D:\\Unreal Projects\\p3\\Intermediate\\Build\\HTML5\\p3\\Development\\PhysXVehicles\\Module.PhysXVehicles.cpp.o: undefined symbol: physx::PxVehicleNoDrive::setDriveTorque(unsigned int, float)
-UATHelper: 打包 (HTML5):     wasm-ld: error: D:\\Unreal Projects\\p3\\Intermediate\\Build\\HTML5\\p3\\Development\\PhysXVehicles\\Module.PhysXVehicles.cpp.o: undefined symbol: physx::PxVehicleNoDrive::setSteerAngle(unsigned int, float)
-UATHelper: 打包 (HTML5):     wasm-ld: error: too many errors emitted, stopping now (use -error-limit=0 to see all errors)
-UATHelper: 打包 (HTML5):     emcc: error: 'D:/UE/UE_4.27/Engine/Platforms/HTML5/Build/emsdk/emsdk-3.1.42/upstream/bin\wasm-ld.exe @D:\UE\UE_4.27\Engine\Platforms\HTML5\Build\emsdk\emsdk-3.1.42\tmp\emscripten_2p9barzf.rsp.utf-8' failed (returned 1)
-PackagingResults: Error: D:\\Unreal Projects\\p3\\Intermediate\\Build\\HTML5\\p3\\Development\\PhysXVehicles\\Module.PhysXVehicles.cpp.o: undefined symbol: physx::PxVehicleSuspensionRaycasts(physx::PxBatchQuery*, unsigned int, physx::PxVehicleWheels**, unsigned int, physx::PxBatchQueryResult<physx::PxRaycastHit>*, bool const*)
-PackagingResults: Error: D:\\Unreal Projects\\p3\\Intermediate\\Build\\HTML5\\p3\\Development\\PhysXVehicles\\Module.PhysXVehicles.cpp.o: undefined symbol: physx::PxVehicleDrivableSurfaceToTireFrictionPairs::release()
-PackagingResults: Error: D:\\Unreal Projects\\p3\\Intermediate\\Build\\HTML5\\p3\\Development\\PhysXVehicles\\Module.PhysXVehicles.cpp.o: undefined symbol: physx::PxVehicleDrivableSurfaceToTireFrictionPairs::allocate(unsigned int, unsigned int)
-PackagingResults: Error: D:\\Unreal Projects\\p3\\Intermediate\\Build\\HTML5\\p3\\Development\\PhysXVehicles\\Module.PhysXVehicles.cpp.o: undefined symbol: physx::PxVehicleDrivableSurfaceToTireFrictionPairs::setup(unsigned int, unsigned int, physx::PxMaterial const**, physx::PxVehicleDrivableSurfaceType const*)
-PackagingResults: Error: D:\\Unreal Projects\\p3\\Intermediate\\Build\\HTML5\\p3\\Development\\PhysXVehicles\\Module.PhysXVehicles.cpp.o: undefined symbol: physx::PxVehicleDrivableSurfaceToTireFrictionPairs::setTypePairFriction(unsigned int, unsigned int, float)
-PackagingResults: Error: D:\\Unreal Projects\\p3\\Intermediate\\Build\\HTML5\\p3\\Development\\PhysXVehicles\\Module.PhysXVehicles.cpp.o: undefined symbol: physx::PxVehicleUpdateSingleVehicleAndStoreTelemetryData(float, physx::PxVec3 const&, physx::PxVehicleDrivableSurfaceToTireFrictionPairs const&, physx::PxVehicleWheels*, physx::PxVehicleWheelQueryResult*,
- physx::PxVehicleTelemetryData&)
-PackagingResults: Error: D:\\Unreal Projects\\p3\\Intermediate\\Build\\HTML5\\p3\\Development\\PhysXVehicles\\Module.PhysXVehicles.cpp.o: undefined symbol: physx::PxVehicleUpdates(float, physx::PxVec3 const&, physx::PxVehicleDrivableSurfaceToTireFrictionPairs const&, unsigned int, physx::PxVehicleWheels**, physx::PxVehicleWheelQueryResult*, physx::PxVehicleC
-oncurrentUpdateData*)
-PackagingResults: Error: D:\\Unreal Projects\\p3\\Intermediate\\Build\\HTML5\\p3\\Development\\PhysXVehicles\\Module.PhysXVehicles.cpp.o: undefined symbol: physx::PxVehicleUpdates(float, physx::PxVec3 const&, physx::PxVehicleDrivableSurfaceToTireFrictionPairs const&, unsigned int, physx::PxVehicleWheels**, physx::PxVehicleWheelQueryResult*, physx::PxVehicleC
-oncurrentUpdateData*)
-PackagingResults: Error: D:\\Unreal Projects\\p3\\Intermediate\\Build\\HTML5\\p3\\Development\\PhysXVehicles\\Module.PhysXVehicles.cpp.o: undefined symbol: physx::PxVehicleUpdates(float, physx::PxVec3 const&, physx::PxVehicleDrivableSurfaceToTireFrictionPairs const&, unsigned int, physx::PxVehicleWheels**, physx::PxVehicleWheelQueryResult*, physx::PxVehicleC
-oncurrentUpdateData*)
-PackagingResults: Error: D:\\Unreal Projects\\p3\\Intermediate\\Build\\HTML5\\p3\\Development\\PhysXVehicles\\Module.PhysXVehicles.cpp.o: undefined symbol: physx::PxVehicleTelemetryData::free()
-PackagingResults: Error: D:\\Unreal Projects\\p3\\Intermediate\\Build\\HTML5\\p3\\Development\\PhysXVehicles\\Module.PhysXVehicles.cpp.o: undefined symbol: physx::PxVehicleDrive4W::free()
-PackagingResults: Error: D:\\Unreal Projects\\p3\\Intermediate\\Build\\HTML5\\p3\\Development\\PhysXVehicles\\Module.PhysXVehicles.cpp.o: undefined symbol: physx::PxVehicleDriveTank::free()
-PackagingResults: Error: D:\\Unreal Projects\\p3\\Intermediate\\Build\\HTML5\\p3\\Development\\PhysXVehicles\\Module.PhysXVehicles.cpp.o: undefined symbol: physx::PxVehicleDriveNW::free()
-PackagingResults: Error: D:\\Unreal Projects\\p3\\Intermediate\\Build\\HTML5\\p3\\Development\\PhysXVehicles\\Module.PhysXVehicles.cpp.o: undefined symbol: physx::PxVehicleNoDrive::free()
-PackagingResults: Error: D:\\Unreal Projects\\p3\\Intermediate\\Build\\HTML5\\p3\\Development\\PhysXVehicles\\Module.PhysXVehicles.cpp.o: undefined symbol: physx::PxVehicleTelemetryData::allocate(unsigned int)
-PackagingResults: Error: D:\\Unreal Projects\\p3\\Intermediate\\Build\\HTML5\\p3\\Development\\PhysXVehicles\\Module.PhysXVehicles.cpp.o: undefined symbol: physx::PxVehicleTelemetryData::setup(float, float, float, float, float const*, float const*, physx::PxVec3 const&, physx::PxVec3 const&, physx::PxVec3 const&)
-PackagingResults: Error: D:\\Unreal Projects\\p3\\Intermediate\\Build\\HTML5\\p3\\Development\\PhysXVehicles\\Module.PhysXVehicles.cpp.o: undefined symbol: physx::PxVehicleNoDrive::setBrakeTorque(unsigned int, float)
-PackagingResults: Error: D:\\Unreal Projects\\p3\\Intermediate\\Build\\HTML5\\p3\\Development\\PhysXVehicles\\Module.PhysXVehicles.cpp.o: undefined symbol: physx::PxVehicleNoDrive::setDriveTorque(unsigned int, float)
-PackagingResults: Error: D:\\Unreal Projects\\p3\\Intermediate\\Build\\HTML5\\p3\\Development\\PhysXVehicles\\Module.PhysXVehicles.cpp.o: undefined symbol: physx::PxVehicleNoDrive::setSteerAngle(unsigned int, float)
-PackagingResults: Error: too many errors emitted, stopping now (use -error-limit=0 to see all errors)
-PackagingResults: Error: 'D:/UE/UE_4.27/Engine/Platforms/HTML5/Build/emsdk/emsdk-3.1.42/upstream/bin\wasm-ld.exe @D:\UE\UE_4.27\Engine\Platforms\HTML5\Build\emsdk\emsdk-3.1.42\tmp\emscripten_2p9barzf.rsp.utf-8' failed (returned 1)
-UATHelper: 打包 (HTML5): Took 778.7632837s to run UnrealBuildTool.exe, ExitCode=6
-UATHelper: 打包 (HTML5): UnrealBuildTool failed. See log for more details. (D:\UE\UE_4.27\Engine\Programs\AutomationTool\Saved\Logs\UBT-p3-HTML5-Development.txt)
-UATHelper: 打包 (HTML5): AutomationTool exiting with ExitCode=6 (6)
 ```
 
 ### 其他
