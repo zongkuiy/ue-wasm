@@ -1,9 +1,6 @@
 # ue-wasm
 
-### unreal engine 支持 Cesium 的 wasm 打包功能调研
-
-- 支持 Cesium 的 ue 版本   
-  4.26 - 4.27, 5.0 - 5.3
+### unreal engine 支持 wasm 打包功能调研
 
 - 支持 wasm 打包的 ue 版本
   - 原生支持：4.23及以下   
@@ -13,12 +10,26 @@
 https://www.bilibili.com/read/cv9954841/   
 https://github.com/Xi3Chen/UE4.27PackingH5DDoc?tab=readme-ov-file
 
-> 阶段性结论: 为了同时支持wasm导出和sesium， 需要自行编译一个ue版本
+### ue4.27-wasm版本编译记录
+主要参考文档   
+https://github.com/UnrealEngineHTML5/Documentation/blob/master/Platforms/HTML5/HowTo/README.md   
+https://www.bilibili.com/read/cv9954841/    
 
-### ue 测试
-- 5.3.2 成功运行 Cesium 示例 (2024-02-21)
-- 4.26.2 不支持 wasm 打包  (2024-02-22)
-- 4.23.1 成功运行 wasm 示例(不支持Cesium)  (2024-02-22)
+### steps
+- [x] 0. 安装依赖的库/包/程序
+- [x] 1. 获取虚幻引擎源代码访问权限   
+- [x] 2. 下载ue代码
+- [x] 3. 从以下地址的Assets下载Commit.gitdepth.xml并覆盖Engine/Build/Commit.gitdepth.xml
+- [x] 4. 运行Setup.bat
+- [x] 5. 运行Engine/Platforms/HTML5/HTML5Setup.sh
+- [x] 6. 运行GenerateProjectFiles.bat
+- [x] 7. VisualStudio2019打开UE4.sln
+- [x] 9. 将HTML5LauncherHelper项目添加到解决方案中
+- [x] 10. 编译生成ue4editor.exe
+- [x] 11. 运行ue4editor.exe
+- [x] 12. 尝试普通项目桌面编译
+- [x] 13. 尝试普通项目html5打包 
+
 
 ### ue 编译记录
 主要参考文档   
@@ -163,16 +174,3 @@ UnrealPak
 > 如果没有html5设备，运行   
 > python embuilder.py build struct_info   
 
-14. 在原生4.27.2上安装Cesium插件
-
-15. 在编译出来的ue4.27.2上创建一个项目并将原生4.27.2上的Cesium插件作为项目插件拷贝到项目plugins中
-
-16. 删除项目plugins中的Binary，启动项目让ueeditor重新编译插件
-
-17. 编译成功后得到的插件放入到ueeditor的插件库中
-
-18. 新建Cesium项目并打包成wasm
-
-### 其他
-- 一家支持ue + Cesium + wasm的公司   
-http://uipower.com/ueplus.html
